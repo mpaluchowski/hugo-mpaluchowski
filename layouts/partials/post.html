@@ -1,0 +1,12 @@
+<header>
+    <p class="post-meta">
+        <time class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04Z07:00" }}" itemprop="datePublished">{{ .Date.Format "January 2, 2006" }}</time>
+        <meta itemprop="image" content="https://michal.paluchowski.com/wp-content/uploads/sites/2/2017/11/goto-berlin-badge-150x150.jpg">
+    </p>
+    <h2 class="p-name" itemprop="name headline">
+        <a href="{{ .Permalink }}" class="u-url">{{ .Title }}</a>
+    </h2>
+</header>
+<section class="post-content e-content" itemprop="articleBody">
+    {{ .Content }}
+</section>

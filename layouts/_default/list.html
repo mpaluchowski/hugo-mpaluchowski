@@ -1,0 +1,18 @@
+{{ define "main" }}
+{{ range .Paginator.Pages }}
+<article class="h-entry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    {{ partial "post.html" . }}
+    <footer>
+        {{ with .Params.tags}}
+        <ul class="tag-list">
+            {{ range sort . }}<li><a href="/tags/{{ . | urlize }}" class="p-category" itemprop="keywords">{{ . }}</a></li>{{ end }}
+        </ul>
+        {{ end }}
+    </footer>
+</article>
+{{ end }}
+<nav class="post-navigation-links">
+    {{ if .Paginator.HasNext }}<a href="{{ .Paginator.Next.URL }}" rel="prev">Older stuff</a>{{ end }}
+    {{ if .Paginator.HasPrev }}<a href="{{ .Paginator.Prev.URL }}" rel="next">Fresh thinking</a>{{ end }}
+</nav>
+{{ end }}

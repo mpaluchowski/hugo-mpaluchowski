@@ -1,0 +1,50 @@
+<div id="side-links">
+    {{ if .Site.Menus.pages }}
+    <aside class="widget widget_nav_menu">
+        <div class="menu-sidebar-navigation-container">
+            <ul id="menu-sidebar-navigation" class="menu">
+                {{ range .Site.Menus.pages }}
+                <li class="menu-item">
+                    <a href="{{ .URL }}">{{ .Name }}</a>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+    </aside>
+    {{ end }}
+
+    {{ if .Site.Menus.readingList }}
+    <aside class="widget widget_nav_menu">
+        <h2 class="widget__title">Reading list</h2>
+        <div class="menu-reading-list-container">
+            <ul id="menu-reading-list" class="menu">
+                {{ range .Site.Menus.readingList }}
+                <li class="menu-item">
+                    <a href="{{ .URL }}">{{ .Name }}</a>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+    </aside>
+    {{ end }}
+
+    {{ if .Site.Menus.blogs }}
+    <aside class="widget widget_nav_menu">
+        <h2 class="widget__title">My other blogs</h2>
+        <div class="menu-other-blogs-container">
+            <ul id="menu-other-blogs" class="menu">
+                {{ range .Site.Menus.blogs }}
+                <li class="menu-item"><a href="{{ .URL }}">{{ .Name }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </aside>
+    {{ end }}
+
+    {{ with .Site.Params.twitter }}
+    <a href="https://twitter.com/{{ . }}" class="twitter-follow-button" data-show-count="false">Follow @{{ . }}</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    {{ end }}
+
+    <footer itemscope itemtype="http://schema.org/WPFooter">{{ .Site.Copyright | safeHTML }}</footer>
+</div>

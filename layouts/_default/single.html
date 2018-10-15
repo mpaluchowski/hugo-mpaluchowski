@@ -1,0 +1,26 @@
+{{ define "main" }}
+{{ $showFooter := true }}
+<article class="h-entry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    {{ partial "post.html" . }}
+    <footer>
+        {{ with .Params.tags}}
+        <ul class="tag-list">
+            {{ range sort . }}<li><a href="/tags/{{ . | urlize }}" class="p-category" itemprop="keywords">{{ . }}</a></li>{{ end }}
+        </ul>
+        {{ end }}
+
+        {{ if isset .Site.Data.authors .Params.author }}
+        <section class="author-description">
+            <h4>Written by <span class="p-author" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ (index .Site.Data.authors .Params.author).name }}</span></span></h4>
+            <p>{{ (index .Site.Data.authors .Params.author).bio | markdownify }}</p>
+        </section>
+        {{ end }}
+
+        <nav class="post-navigation-links">
+            {{ with .Next }}<a href="{{ .Permalink }}" rel="prev">{{ .Title }}</a>{{ end }}
+            {{ with .Prev }}<a href="{{ .Permalink }}" rel="next">{{ .Title }}</a>{{ end }}
+        </nav>
+    </footer>
+</article>
+
+{{ end }}
