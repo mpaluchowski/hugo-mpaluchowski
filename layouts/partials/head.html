@@ -7,23 +7,23 @@
     <meta name="name" itemprop="name" content="{{ .Title }}">
     <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.subtitle }}{{ end }}{{ if .IsPage }}{{ .Summary }}{{ end }}">
     <meta property="og:url" content="{{ .Permalink }}">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
     <meta property="og:title" content="{{ .Title }}">
     <meta property="og:description" content="{{ if .IsHome }}{{ .Site.Params.subtitle }}{{ end }}{{ if .IsPage }}{{ .Summary }}{{ end }}">
     <meta name="twitter:title" content="{{ .Title }}">
     <meta name="twitter:description" content="{{ if .IsHome }}{{ .Site.Params.subtitle }}{{ end }}{{ if .IsPage }}{{ .Summary }}{{ end }}">
     {{ with .Params.image -}}
-    <meta property="og:image" content="{{ . }}">
+    <meta property="og:image" content="{{ $.Site.BaseURL }}{{ . }}">
     <meta property="twitter:image" content="{{ . }}">
     {{- end }}
     <meta name="twitter:card" content="summary">
-    {{ if isset .Params "author" }}{{ if isset .Site.Data.authors .Params.author }}<meta name="twitter:creator" content="@(index .Site.Data.authors .Params.author).twitter">{{ end }}{{ end }}
+    {{ if isset .Params "author" }}{{ if isset .Site.Data.authors .Params.author }}<meta name="twitter:creator" content="@{{ (index .Site.Data.authors .Params.author).twitter }}">{{ end }}{{ else if .Site.Params.twitter }}<meta name="twitter:creator" content="@{{ .Site.Params.twitter }}">{{ end }}
     {{ with .Site.Params.twitter }}<meta name="twitter:site" content="@{{ . }}">{{ end }}
 
     {{ .Hugo.Generator }}
 
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:900&#038;subset=latin,latin-ext" type="text/css" media="all">
-    <link rel="stylesheet" href="https://michal.paluchowski.com/wp-content/themes/mpaluchowski/style.css?ver=4.9.8" type="text/css" media="all">
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all">
     {{ template "_internal/google_analytics_async.html" . }}
 </head>

@@ -1,0 +1,166 @@
+> h2 {
+	font-size: 2rem;
+	font-weight: bold;
+	line-height: 130%;
+	margin: 20px 0 10px;
+}
+
+> p, blockquote > p {
+	font-size: 1.4rem;
+	line-height: 1.6em;
+	margin: 0 0 1.1rem;
+
+	img {
+		display: block;
+		margin: 20px auto;
+		max-width: 100%;
+	}
+}
+
+p, blockquote, li {
+	> code {
+		border: 1px solid #C9C9C9;
+		background: #EEE;
+		border-radius: 3px;
+		font-size: 1.3rem;
+		padding: .1rem .4rem;
+		white-space: nowrap;
+	}
+}
+
+figure {
+	margin: 20px auto;
+	text-align: center;
+
+	img {
+		max-width: 100%;
+	}
+
+	figcaption {
+		font-size: 1.2rem;
+		margin-top: .6em;
+	}
+}
+
+blockquote {
+	border-left: 4px solid #C9C9C9;
+	color: lighten(#000, 15%);
+	margin: 18px 0 18px 15px;
+	padding: 5px 0 6px 10px;
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
+
+	ol, ul {
+		margin: 0 0 1.2rem 5px;
+	}
+
+	cite {
+		font-size: 1.2rem;
+
+		&:before {
+			content: "\2014  ";
+		}
+
+		a {
+			font-style: italic;
+		}
+	}
+}
+
+iframe {
+	margin: 8px auto;
+	max-width: 100%;
+}
+
+strong {
+	font-weight: bold;
+}
+
+em {
+	font-style: italic;
+}
+
+a {
+	border-bottom: 1px solid #C9C9C9;
+	color: $green-link;
+	text-decoration: none;
+}
+
+abbr {
+	border-bottom: 1px dotted #000;
+	cursor: help;
+	text-decoration: none;
+}
+
+ol, ul {
+	position: relative;
+
+	> li {
+		font-size: 1.4rem;
+		line-height: 1.6em;
+		margin: 0 0 .4rem 15px;
+	}
+}
+
+> ol, > ul {
+	margin: 0 0 1.2rem 15px;
+}
+
+ol {
+	list-style-type: decimal;
+}
+
+ul {
+	> li {
+		&:before {
+			content: "";
+			display: inline-block;
+			background: #C9C9C9;
+			border-radius: 50%;
+			left: -2px;
+			position: absolute;
+			height: .7rem;
+			margin: .8rem 0 0;
+			width: .7rem;
+		}
+	}
+}
+
+code {
+	font-family: Consolas, "Lucida Console", "Courier New", monospace;
+	line-height: 150%;
+}
+
+pre {
+	border: 1px solid #C9C9C9;
+	background: #EEE;
+	border-radius: 3px;
+	margin: 18px 0;
+	overflow: auto;
+	padding: 10px;
+	tab-size: 2;
+
+	code {
+		font-size: 1.3rem;
+	}
+}
+
+hr {
+	border: 0;
+	height: 20px;
+	margin: 2rem 0;
+	position: relative;
+
+	&:after {
+		content: "\2217  \2217  \2217";
+		font-size: 1.8rem;
+		left: 50%;
+		margin-left: -50px;
+		position: absolute;
+		text-align: center;
+		top: 0;
+		width: 100px;
+	}
+}
