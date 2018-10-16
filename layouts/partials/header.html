@@ -1,9 +1,11 @@
 <header id="site-head" itemscope itemtype="http://schema.org/WPHeader">
+    {{ with .Site.Params.Logo }}
     <div id="blog-logo">
-        <a href="{{ .Site.BaseURL }}">
-            <img src="https://michal.paluchowski.com/wp-content/uploads/sites/2/2014/03/mpaluchowski.jpg" alt="">
+        <a href="{{ $.Site.BaseURL }}">
+            <img src="{{ .path }}" alt="{{ .alt }}">
         </a>
     </div>
+    {{ end }}
 
     <h1 itemprop="headline">
         <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
