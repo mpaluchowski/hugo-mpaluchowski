@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+    <head itemscope itemtype="http://schema.org/WebSite">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{{ .Title }}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {{ .Hugo.Generator }}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:900&#038;subset=latin,latin-ext" type="text/css" media="all">
+        <link rel="stylesheet" href="/css/style.css" type="text/css" media="all">
+        {{ template "_internal/google_analytics_async.html" . }}
+    </head>
+
+    <body class="error404" itemscope itemtype="http://schema.org/WebPage">
+        <div class="wrap-404">
+            {{ partial "header.html" . }}
+
+            <main class="content-404 post-content">
+                <h1>Oops! No page here</h1>
+                <p>We couldn't find anything at this location. Maybe it went missing, or maybe it was never here in the first place. Try <a href="{{ .Site.BaseURL }}">starting from home</a>.</p>
+            </main>
+        </div>
+    </body>
+</html>
