@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     {{ partial "head.html" . }}
-    <body class="home blog" itemscope itemtype="http://schema.org/WebPage">
+    <body{{ with .Type }} class="{{ . }}"{{ end }} itemscope itemtype="http://schema.org/WebPage">
         <div id="wrap">
             {{ partial "header.html" . }}
             <main class="content-main" itemprop="mainEntity" itemscope itemtype="http://schema.org/Blog">

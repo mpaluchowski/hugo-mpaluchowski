@@ -1,0 +1,10 @@
+<article class="h-entry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    {{ partial "post.html" . }}
+    <footer>
+        {{ with .Params.tags}}
+        <ul class="tag-list">
+            {{ range sort . }}<li><a href="/tags/{{ . | urlize }}" class="p-category" itemprop="keywords">{{ . }}</a></li>{{ end }}
+        </ul>
+        {{ end }}
+    </footer>
+</article>

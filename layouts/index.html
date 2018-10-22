@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ range .Paginator.Pages }}
+{{ range (.Paginate (where .Pages "Type" "posts")).Pages }}
 {{ partial "list-article" . }}
 {{ end }}
 {{ partial "list-pagination" . }}
