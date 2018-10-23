@@ -7,8 +7,8 @@
     </div>
     {{ end }}
 
-    <h1 itemprop="headline">
+    {{ if .Page.IsHome }}<h1{{ else }}<div id="site-title"{{ end }} itemprop="headline">
         <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
-    </h1>
-    <h2 itemprop="description">{{ .Site.Params.Subtitle }}</h2>
+    {{ if .Page.IsHome }}</h1{{ else }}</div{{ end }}>
+    {{ if .Page.IsHome }}<h2{{ else }}<div id="site-description"{{ end }} itemprop="description">{{ .Site.Params.Subtitle }}{{ if .Page.IsHome }}</h2{{ else }}</div{{ end }}>
 </header>
