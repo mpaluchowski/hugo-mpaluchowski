@@ -1,8 +1,10 @@
 <header>
+    {{ if eq .Section "posts"}}
     <p class="post-meta">
         <time class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04Z07:00" }}" itemprop="datePublished">{{ .Date.Format "January 2, 2006" }}</time>
         <meta itemprop="image" content="https://michal.paluchowski.com/wp-content/uploads/sites/2/2017/11/goto-berlin-badge-150x150.jpg">
     </p>
+    {{ end }}
     {{ if .IsHome }}<h2{{ else }}<h1{{ end }} class="p-name" itemprop="name headline">
         <a href="{{ .Permalink }}" class="u-url">{{ .Title }}</a>
     {{ if .IsHome }}</h2{{ else }}</h1{{ end }}>
