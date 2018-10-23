@@ -7,8 +7,15 @@
     </div>
     {{ end }}
 
-    {{ if .Page.IsHome }}<h1{{ else }}<div id="site-title"{{ end }} itemprop="headline">
+    {{ if .Page.IsHome }}
+    <h1 itemprop="headline">
         <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
-    {{ if .Page.IsHome }}</h1{{ else }}</div{{ end }}>
-    {{ if .Page.IsHome }}<h2{{ else }}<div id="site-description"{{ end }} itemprop="description">{{ .Site.Params.Subtitle }}{{ if .Page.IsHome }}</h2{{ else }}</div{{ end }}>
+    </h1>
+    <h2 itemprop="description">{{ .Site.Params.Subtitle }}</h2>
+    {{ else }}
+    <div id="site-title" itemprop="headline">
+        <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+    </div>
+    <div id="site-description" itemprop="description">{{ .Site.Params.Subtitle }}</div>
+    {{ end }}
 </header>
