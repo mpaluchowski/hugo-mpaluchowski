@@ -6,7 +6,7 @@
     </p>
     {{ end }}
     {{ if .IsHome }}<h2{{ else }}<h1{{ end }} class="p-name" itemprop="name headline">
-        <a href="{{ .Permalink }}" class="u-url">{{ .Title }}</a>
+        <a href="{{ .Permalink }}" class="u-url">{{ .Title | markdownify }}</a>
     {{ if .IsHome }}</h2{{ else }}</h1{{ end }}>
 </header>
 <section class="post-content e-content" itemprop="articleBody">
