@@ -5,7 +5,7 @@
     <footer>
         {{ with .Params.tags}}
         <ul class="tag-list">
-            {{ range sort . }}<li><a href="/tags/{{ . | urlize }}" class="p-category" itemprop="keywords">{{ . }}</a></li>{{ end }}
+            {{ range $term := sort . }}{{ with $.Site.GetPage (printf "/tags/%s" $term | urlize) }}<li><a href="{{ .Permalink }}" class="p-category" itemprop="keywords">{{ $term }}</a></li>{{ end }}{{ end }}
         </ul>
         {{ end }}
 
